@@ -1,11 +1,15 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
-import auth, { initAuthStateListening } from './state/auth'
-
+import newTask from './state/newTask'
+import tasksList from './state/tasksList'
+import search from './state/search'
 
 const reducer = combineReducers({
-    auth
+    newTask,
+    tasksList,
+    search, 
+   
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -17,4 +21,3 @@ export const store = createStore(
     )
 )
 
-store.dispatch(initAuthStateListening())
